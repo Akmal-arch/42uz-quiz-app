@@ -21,12 +21,24 @@ header {
     flex-grow: 1;
     width: 90%;
     margin: 0 auto;
+    position: relative;
 
+    .header-score{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
     span {
         font: {
             size: 25px;
             weight: 600;
         }
+    }
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 5px;
     }
 }
 main {
@@ -165,10 +177,10 @@ footer {
 }
 
 
-.good-result {
+.good-score {
     background-color: #00d397;
 }
 
-.bad-result {
+.bad-score {
     background-color: #FF4A4A;
 }
