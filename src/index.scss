@@ -127,52 +127,37 @@ footer {
     border: 1px solid hsl(0, 0%, 0%);
 }
 
-.result-main {
-    width: 600px;
-    height: fit-content;
+.result {
+    width: auto;
+    height: auto;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    row-gap: 1.5rem;
-    margin: auto;
+    row-gap: 1rem;
     background-color: #ebebeb;
-    padding: 2rem 10px 10px 10px;
     border-radius: 1rem;
+    padding: 2rem 5rem;
 
     h1 {
-        font: {
-            size: 45px;
-            weight: 700;
-        }
-        padding: 0 0 1rem 0;
-        width: 100%;
-        margin: 0 0 1rem 0;
-        text-align: center;
-        border-bottom: 1px solid hsl(0, 0%, 60%);
+        font-size: 40px;
+        font-weight: 700;
     }
-    h2 {
-        font: {
-            size: 30px;
-            weight: 600;
-        }
-        background: #00d397;
-        padding: 5px;
-        border-radius: 6px;
 
-        span {
-            font-size: 40px;
-        }
+    .score-main {
+        color: green;
     }
 
     button {
         border: none;
+        border-radius: 10px;
         background-color: hsl(0, 0%, 70%);
+        padding: 20px 0;
         width: 100%;
-        padding: 2rem 0;
-        border-radius: 1rem;
-        font-size: 25px;
-        font-weight: 600;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
     }
 }
 
@@ -183,4 +168,22 @@ footer {
 
 .bad-score {
     background-color: #FF4A4A;
+}
+
+
+.circle-background {
+    fill: none;
+    stroke: #ddd;
+}
+
+.circle-progress {
+    fill: none;
+    stroke: hsl(240, 68%, 52%);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.circle-text {
+    font-size: 3rem;
+    font-weight: bold;
 }

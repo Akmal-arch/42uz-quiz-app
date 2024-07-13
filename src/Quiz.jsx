@@ -3,6 +3,7 @@ import incorrect from './assets/incorrect.png';
 import checkbox from './assets/check-box-empty.png'
 import { useState } from 'react';
 import books from './assets/books.png'
+import Result from './components/Result';
 
 function Quiz({ questions }) {
 
@@ -75,13 +76,13 @@ function Quiz({ questions }) {
     return (
         <div className="container">
             {showResult ? (
-                <div className="result-main">
-                    <h1>Quiz Result</h1>
-                    <h2 className={score > wrongAns ? "good-score" : "bad-score"}>You answered <span>{score}</span> questions correctly.</h2>
-                    <h3>Wrong Answers: {wrongAns}</h3>
-                    <h3>Skipped Answers: {skippedAns}</h3>
-                    <button onClick={resetQuiz}>Restart Quiz</button>
-                </div>
+                <Result
+                    score={score}
+                    totalQuestions={questions.length}
+                    skippedAns={skippedAns}
+                    wrongAns={wrongAns}
+                    resetQuiz={resetQuiz}
+                />
             ) : (
                 <>
                     <header>
