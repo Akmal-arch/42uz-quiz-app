@@ -3,24 +3,24 @@ function CircleProgressBar({ percentage, circleWidth }) {
     const dashArray = radius * Math.PI * 2;
     const dashOffset = dashArray - (dashArray * percentage) / 100;
 
-    return(
+    return (
         <div>
             <svg
-             width={circleWidth} 
-             height={circleWidth}
-             viewBox={`0 0 ${circleWidth} ${circleWidth}`}
-             >
+                width={circleWidth}
+                height={circleWidth}
+                viewBox={`0 0 ${circleWidth} ${circleWidth}`}
+            >
 
-                <circle 
-                    cx={circleWidth /2}
-                    cy={circleWidth /2}
+                <circle
+                    cx={circleWidth / 2}
+                    cy={circleWidth / 2}
                     strokeWidth="30px"
                     r={radius}
                     className="circle-background"
                 />
-                <circle 
-                    cx={circleWidth /2}
-                    cy={circleWidth /2}
+                <circle
+                    cx={circleWidth / 2}
+                    cy={circleWidth / 2}
                     strokeWidth="30px"
                     r={radius}
                     className="circle-progress"
@@ -36,8 +36,13 @@ function CircleProgressBar({ percentage, circleWidth }) {
                     dy="0.3em"
                     textAnchor="middle"
                     className="circle-text"
+                    style={
+                        {
+                            fill: "white",
+                        }
+                    }
                 >{percentage}%</text>
-             </svg>
+            </svg>
         </div>
     )
 }

@@ -1,3 +1,7 @@
+$btn-bg: #33A653;
+$link-color: #00AAFF;
+
+
 * {
     margin: 0;
     padding: 0;
@@ -5,46 +9,72 @@
     list-style: none;
     transition: .1s linear;
 }
+
 html {
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .container {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+
+    background-color: #010409;
+    background-image:
+        radial-gradient(at 47% 33%, hsl(218.18, 39%, 11%) 0, transparent 59%),
+        radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
+    color: #fff;
 }
+
+header,
+main,
+footer {
+    width: 85%;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-grow: 1;
-    width: 90%;
     margin: 0 auto;
     position: relative;
+    padding: 1.5rem 0;
 
-    .header-score{
+    h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 80px;
+        }
+    }
+
+    .header-score {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
     }
+
     span {
         font: {
-            size: 25px;
+            size: 28px;
             weight: 600;
         }
     }
+
     div {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        column-gap: 5px;
+        column-gap: 10px;
     }
 }
+
 main {
     flex-grow: 8;
-    width: 90%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -54,19 +84,21 @@ main {
 
     h2 {
         font-size: 35px;
+        text-align: center;
     }
 
     ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        row-gap: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px 20px;
+        grid-template-areas:
+            ". ."
+            ". .";
 
         li {
-            width: 400px;
-            height: 60px;
-            background-color: #ebebeb;
+            width: 500px;
+            height: 100px;
             border-radius: 10px;
             display: flex;
             justify-content: flex-start;
@@ -74,33 +106,41 @@ main {
             align-items: center;
             cursor: pointer;
             font-size: 20px;
-            font-weight: 500;
-            transition: .1s linear;
+
+
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            background-color: rgba(1, 4, 9, 0.7);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.125);
         }
-        li:hover {
-            background-color: hsl(0, 0%, 80%);
-        }
+
+        li:hover {}
     }
 }
+
 footer {
-    flex-grow: 1;
+    padding: 2rem 0;
     display: flex;
     align-items: center;
-    width: 90%;
     justify-content: space-between;
     margin: 0 auto;
 
     button {
         border: none;
         border-radius: 10px;
-        background-color: #ebebeb;
+        background-color: $btn-bg;
         padding: 20px 30px;
         font-size: 18px;
         font-weight: 500;
         cursor: pointer;
+        color: #fff;
+        // 505B67
     }
-    button:hover {
-        background-color: hsl(0, 0%, 70%);
+
+    .cancel-button {
+        background: none;
+        color: $link-color;
     }
 
     div {
@@ -109,7 +149,7 @@ footer {
         column-gap: 1rem;
 
         img {
-            width: 40px;
+            width: 50px;
         }
     }
 }
@@ -132,44 +172,76 @@ footer {
 }
 
 .selected-answer {
-    border: 1px solid hsl(0, 0%, 40%);
-    background-color: hsl(0, 0%, 85%);
+    background-color: #161B22;
 }
 
 .result {
-    width: auto;
-    height: auto;
-    margin: auto;
+    width: 100%;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    row-gap: 1rem;
-    background-color: #ebebeb;
-    border-radius: 1rem;
-    padding: 2rem 5rem;
 
-    h1 {
-        font-size: 40px;
-        font-weight: 700;
-    }
+    background-color: #010409;
+    background-image:
+        radial-gradient(at 47% 33%, hsl(218.18, 39%, 11%) 0, transparent 59%),
+        radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
+    color: #fff;
 
-    .score-main {
-        color: green;
+    .result-container {
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 1rem;
+        padding: 2rem;
+        column-gap: 5rem;
+
+        backdrop-filter: blur(25px) saturate(180%);
+        -webkit-backdrop-filter: blur(25px) saturate(180%);
+        background-color: rgba(13, 17, 23, 0.7);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+
+        .result-box:nth-child(1) {
+            h1 {
+                font: {
+                    size: 50px;
+                    weight: 700;
+                }
+
+                text-align: center;
+                color: white;
+                position: relative;
+                top: -60px;
+                background-color: $btn-bg;
+                border-radius: 10px;
+                padding: 7px 0;
+            }
+
+            h2 {
+                font-size: 50px;
+                font-weight: 900;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 30px;
+                margin-top: 10px;
+            }
+        }
     }
 
     button {
-        border: none;
+        background-color: #21262D;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        font-size: 22px;
+        padding: 20px 40px;
         border-radius: 10px;
-        background-color: hsl(0, 0%, 70%);
-        padding: 20px 0;
-        width: 100%;
-        font-size: 18px;
-        font-weight: 500;
-        cursor: pointer;
-    }
-    button:hover {
-        background-color: hsl(0, 0%, 60%);
+        position: relative;
+        transform: translateY(-50%);
     }
 }
 
@@ -185,12 +257,12 @@ footer {
 
 .circle-background {
     fill: none;
-    stroke: #ddd;
+    stroke: #161B22;
 }
 
 .circle-progress {
     fill: none;
-    stroke: hsl(240, 68%, 52%);
+    stroke: $btn-bg;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
@@ -198,4 +270,5 @@ footer {
 .circle-text {
     font-size: 3rem;
     font-weight: bold;
+    color: white;
 }

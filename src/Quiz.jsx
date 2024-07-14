@@ -1,9 +1,10 @@
 import correct from './assets/correct.png';
 import incorrect from './assets/incorrect.png';
-import checkbox from './assets/check-box-empty.png'
+import checkbox from './assets/checkbox.png'
 import { useState } from 'react';
 import books from './assets/books.png'
 import Result from './components/Result';
+import Brain from './assets/brain.png'
 
 function Quiz({ questions }) {
 
@@ -86,7 +87,7 @@ function Quiz({ questions }) {
             ) : (
                 <>
                     <header>
-                        <h1>Quiz App</h1>
+                        <h1><img src={Brain} />Quiz App</h1>
                         <span className='header-score'>To'g'ri: {score}</span>
                         <div>
                             <img src={books} alt="" width={50} />
@@ -95,7 +96,7 @@ function Quiz({ questions }) {
                     </header>
                     <div className="vr"></div>
                     <main>
-                        <h2>{question}</h2>
+                        <h2 className='question-text'>{question}</h2>
                         <ul>
                             {
                                 choices.map((answer, index) => (
@@ -129,12 +130,14 @@ function Quiz({ questions }) {
                         </div>
                         <div>
                             {selectedAns ? (
-                                <button onClick={cancelClick}>Bekor Qilish</button>
+                                <button onClick={cancelClick} className='cancel-button'>Bekor Qilish</button>
                             ) : null}
                             {selectedAns ? (
                                 <button onClick={handleSubmit}>Tasdiqlash</button>
                             ) : showResult ? (
                                 <button>Tugatish</button>
+                            ) : selectedAns === null ? (
+                                <button onClick={nextQuestion}>O'tkazish</button>
                             ) : (
                                 <button onClick={nextQuestion}>Keyingisi</button>
                             )}
