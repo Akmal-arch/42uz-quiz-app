@@ -11,9 +11,9 @@ function Result({ score, totalQuestions, skippedAns, wrongAns, resetQuiz }) {
             <div className="result-container">
                 <div className="result-box">
                     <h1>Quiz Result</h1>
-                    <h2 className="score-main">Correct: {score}/{totalQuestions}</h2>
-                    <h3>Wrong: {wrongAns}/{totalQuestions}</h3>
-                    <h3>Skipped: {skippedAns}/{totalQuestions}</h3>
+                    <h2 className="score-main">To'g'ri: {score}/{totalQuestions}</h2>
+                    <h3>Noto'g'ri: {wrongAns}/{totalQuestions}</h3>
+                    <h3>O'tkazib yuborildi: {skippedAns}/{totalQuestions}</h3>
                 </div>
                 <div className="result-box">
                     <CircleProgressBar
@@ -23,7 +23,7 @@ function Result({ score, totalQuestions, skippedAns, wrongAns, resetQuiz }) {
                 </div>
             </div>
 
-            <button onClick={resetQuiz}>Restart</button>
+            <button onClick={resetQuiz}>Qayta ishlash</button>
         </div>
     )
 }
